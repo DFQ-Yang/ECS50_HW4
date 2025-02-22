@@ -1,5 +1,5 @@
-# Version 1.0.0
-# everything implemented
+# Version 1.0.1
+# fixed nameing problems
 
 ##
 # Copyright (c) 1990-2023 James R. Larus.
@@ -146,7 +146,8 @@ __mtrap:
 
     # restore
     jal restore
-    addi mepc mepc 4
+    addi s1 s1 4
+    csrw mepc s1
     ret
 
 cha1:
@@ -157,7 +158,8 @@ cha1:
 
     # restore
     jal restore
-    addi mepc mepc 4
+    addi s1 s1 4
+    csrw mepc s1
     ret
 
 store:
