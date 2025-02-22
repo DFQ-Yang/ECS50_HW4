@@ -1,5 +1,5 @@
-# Version 1.0.1
-# fixed nameing problems
+# Version 1.0.2
+# fixed a judgement problem
 
 ##
 # Copyright (c) 1990-2023 James R. Larus.
@@ -113,7 +113,7 @@ __mtrap:
     csrr s2 mtval
 
     # general cases jump to terminate
-    li t0 6
+    li t0 4
     bne s0 t0 terminate
     li t0 0x0000707F    # mask = 0000707F
     and t0 t0 s1
