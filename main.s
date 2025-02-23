@@ -49,7 +49,7 @@ main:
 	addi sp sp 20
 	ret
 
-traptest:
+traptest:	
 	addi sp sp -12
 	sw ra 0(sp)
 	sw s0 4(sp)
@@ -64,8 +64,9 @@ traptest:
 
 	sw a0 0(s0)
 	sw a1 4(s0)
-
 	lw a0 2(s0)
+	li a0 133
+    call printhex
 	li a1 0x06050403
 	call assert
 	

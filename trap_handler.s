@@ -1,5 +1,5 @@
-# Version 1.0.2
-# fixed a judgement problem
+# Version 1.0.3
+# use mret instead of ret
 
 ##
 # Copyright (c) 1990-2023 James R. Larus.
@@ -113,6 +113,7 @@ __mtrap:
     csrr s2 mtval
 
     # general cases jump to terminate
+    
     li t0 4
     bne s0 t0 terminate
     li t0 0x0000707F    # mask = 0000707F
@@ -148,7 +149,7 @@ __mtrap:
     jal restore
     addi s1 s1 4
     csrw mepc s1
-    ret
+    mret
 
 cha1:
     mul t1 t1 t2
@@ -160,7 +161,7 @@ cha1:
     jal restore
     addi s1 s1 4
     csrw mepc s1
-    ret
+    mret
 
 store:
     csrrw sp, mscratch, sp
