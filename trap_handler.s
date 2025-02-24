@@ -1,4 +1,4 @@
-# Version 1.0.4
+# Version 1.0.5
 # no idea, just for testing
 
 ##
@@ -107,8 +107,6 @@ __mstart:
 
 ### You will need to write your own trap handler functionality here.
 __mtrap:
-    li a0 123
-    call printhex
     jal store
     csrr s0 mcause
     csrr s1 mepc
@@ -117,6 +115,8 @@ __mtrap:
     # general cases jump to terminate
     
     li t0 4
+    mv a0 t0
+    call printhex
     bne s0 t0 terminate
     li t0 0x0000707F    # mask = 0000707F
     and t0 t0 s1
