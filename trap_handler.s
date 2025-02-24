@@ -112,7 +112,7 @@ __mtrap:
     csrr s1 mepc
     csrr s2 mtval
     li t0 0
-    beq t0 s0 terminate
+    beq t0 s1 terminate
     lw s1 0(s1)
 
     # general cases jump to terminate
