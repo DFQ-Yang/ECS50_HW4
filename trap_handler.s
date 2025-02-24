@@ -111,9 +111,7 @@ __mtrap:
     csrr s0 mcause
     csrr s1 mepc
     csrr s2 mtval
-    lw s0 0(s0)
     lw s1 0(s1)
-    lw s2 0(s2)
 
     # general cases jump to terminate
     mv a0 s0
