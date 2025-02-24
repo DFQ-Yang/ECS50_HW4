@@ -1,5 +1,5 @@
-# Version 1.0.6
-# no idea, just for testing
+# Version 1.0.7
+# fixed the problem that csrr read the address not the value
 
 ##
 # Copyright (c) 1990-2023 James R. Larus.
@@ -111,9 +111,12 @@ __mtrap:
     csrr s0 mcause
     csrr s1 mepc
     csrr s2 mtval
+    lw s0 0(s0)
+    lw s1 0(s1)
+    lw s2 0(s2)
 
     # general cases jump to terminate
-    lw a0 0(s1)
+    lw a0 s0
     call printhex
     li t0 6
     bne s0 t0 terminate
@@ -148,6 +151,7 @@ __mtrap:
 
     # restore
     jal restore
+    csrr s1 mepc
     addi s1 s1 4
     csrw mepc s1
     mret
@@ -160,6 +164,7 @@ cha1:
 
     # restore
     jal restore
+    csrr s1 mepc
     addi s1 s1 4
     csrw mepc s1
     mret
