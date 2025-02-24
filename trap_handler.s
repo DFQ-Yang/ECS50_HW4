@@ -1,5 +1,5 @@
-# Version 1.0.7
-# fixed the problem that csrr read the address not the value
+# Version 1.0.8
+# fixed the problem when mepc = 0 load a wrong adress
 
 ##
 # Copyright (c) 1990-2023 James R. Larus.
@@ -111,6 +111,8 @@ __mtrap:
     csrr s0 mcause
     csrr s1 mepc
     csrr s2 mtval
+    li t0 0
+    beq t0 s0 terminate
     lw s1 0(s1)
 
     # general cases jump to terminate
@@ -150,8 +152,6 @@ __mtrap:
     csrr s1 mepc
     addi s1 s1 4
     csrw mepc s1
-    csrr a0 mepc
-    call printhex
     mret
 
 cha1:
@@ -165,8 +165,6 @@ cha1:
     csrr s1 mepc
     addi s1 s1 4
     csrw mepc s1
-    csrr a0 mepc
-    call printhex
     mret
 
 store:
