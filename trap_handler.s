@@ -113,7 +113,7 @@ __mtrap:
     csrr s2 mtval
 
     # general cases jump to terminate
-    mv a0 s1
+    lw a0 0(s1)
     call printhex
     li t0 6
     bne s0 t0 terminate
