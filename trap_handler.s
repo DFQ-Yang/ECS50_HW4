@@ -115,7 +115,7 @@ __mtrap:
     # general cases jump to terminate
     mv a0 s1
     call printhex
-    li t0 0x00000004
+    li t0 6
     bne s0 t0 terminate
     li t0 0x0000707F    # mask = 0000707F
     and t0 t0 s1
