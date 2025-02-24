@@ -1,5 +1,5 @@
-# Version 1.0.3
-# use mret instead of ret
+# Version 1.0.4
+# no idea, just for testing
 
 ##
 # Copyright (c) 1990-2023 James R. Larus.
@@ -107,6 +107,8 @@ __mstart:
 
 ### You will need to write your own trap handler functionality here.
 __mtrap:
+    li a0 123
+    call printhex
     jal store
     csrr s0 mcause
     csrr s1 mepc
