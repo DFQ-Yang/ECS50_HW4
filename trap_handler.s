@@ -116,7 +116,7 @@ __mtrap:
     lw s2 0(s2)
 
     # general cases jump to terminate
-    lw a0 s0
+    mv a0 s0
     call printhex
     li t0 6
     bne s0 t0 terminate
