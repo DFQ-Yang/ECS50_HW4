@@ -1,4 +1,4 @@
-# Version 1.0.5
+# Version 1.0.6
 # no idea, just for testing
 
 ##
@@ -114,7 +114,7 @@ __mtrap:
 
     # general cases jump to terminate
     
-    li t0 4
+    li t0 0x00000004
     mv a0 t0
     call printhex
     bne s0 t0 terminate
