@@ -113,10 +113,9 @@ __mtrap:
     csrr s2 mtval
 
     # general cases jump to terminate
-    
-    li t0 0x00000004
-    mv a0 t0
+    mv a0 s1
     call printhex
+    li t0 0x00000004
     bne s0 t0 terminate
     li t0 0x0000707F    # mask = 0000707F
     and t0 t0 s1
