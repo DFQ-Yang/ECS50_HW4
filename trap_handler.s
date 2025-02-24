@@ -150,6 +150,8 @@ __mtrap:
     csrr s1 mepc
     addi s1 s1 4
     csrw mepc s1
+    csrr a0 mepc
+    call printhex
     mret
 
 cha1:
@@ -163,6 +165,8 @@ cha1:
     csrr s1 mepc
     addi s1 s1 4
     csrw mepc s1
+    csrr a0 mepc
+    call printhex
     mret
 
 store:
