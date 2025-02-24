@@ -116,11 +116,13 @@ __mtrap:
     # general cases jump to terminate
     mv a0 s0
     call printhex
-    li t0 6
+    li t0 0x00000004
     bne s0 t0 terminate
     li t0 0x0000707F    # mask = 0000707F
     and t0 t0 s1
     li t1 0x00002003 # lw = 00002003
+    mv a0 t1
+    call printhex
     bne t0 t1 terminate
 	
     # lw and misaligned address
